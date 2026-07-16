@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Teams - Pakistan's elite squad of AI innovators selected from across the country for IOAI competitions.">
+    <meta name="theme-color" content="#0f1a3b">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nstc-ioai.pk/team.html">
+    <meta property="og:title" content="Teams - IOAI Pakistan">
+    <meta property="og:description" content="Pakistan's elite squad of AI innovators selected from across the country.">
+    <meta property="og:image" content="./assets/Brand kit/Logo square.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://nstc-ioai.pk/team.html">
+    <meta property="twitter:title" content="Teams - IOAI Pakistan">
+    <meta property="twitter:description" content="Pakistan's elite squad of AI innovators.">
+    <meta property="twitter:image" content="./assets/Brand kit/Logo square.png">
+    <title>Teams - IOAI Pakistan</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="./assets/Brand kit/Icon.png" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+   
+   <style>
+  /* Target the actual row container holding the 3 cards */
+  .team-stats {
+    display: flex !important;
+    flex-wrap: nowrap !important; /* Keep them side by side */
+    justify-content: space-between !important;
+    gap: 6px !important; /* Tighten the gap on small screens */
+    width: 100% !important;
+    box-sizing: border-box !important;
+  } 
+
+  /* Target the individual cards to shrink correctly */
+  .stat {
+    flex: 1 !important;
+    min-width: 0 !important; /* Crucial: allows flex items to shrink below text width */
+    padding: 8px 4px !important; /* Tighter padding inside cards */
+    text-align: center !important;
+  }
+
+  /* Specific micro-adjustments for ultra-small 320px screens */
+  @media (max-width: 340px) {
+    .team-stats {
+      gap: 4px !important;
+    }
+    .stat {
+      font-size: 11px !important; /* Shrinks text slightly so it fits perfectly without cutting */
+    }
+    .stat strong {
+      font-size: 13px !important; /* Adjust bold number size slightly */
+    }
+  }
+</style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-section">
+                <img src="./assets/Brand kit/Logo square.png" alt="IOAI Logo" class="logo-img">
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="mission.html">Mission</a></li>
+                <li><a href="team.html" class="active">Team</a></li>
+                <li><a href="details.html">Resources</a></li>
+                <li><a href="https://chat.whatsapp.com" class="join-btn" target="_blank">Join Community</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Team Header -->
+    <section class="page-header">
+        <h1>Pakistani Teams</h1>
+        <p>Meet the innovators driving AI excellence across Pakistan</p>
+    </section>
+
+    <!-- Teams Gallery -->
+    <section class="teams-showcase">
+        <div class="teams-container">
+            <!-- Team 1 -->
+            <div class="team-showcase-card">
+                <div class="team-image-large">
+                    <img src="./assets/team1.webp" alt="Team Pakistan">
+                </div>
+                <div class="team-info">
+                    <h2>Team Pakistan</h2>
+                    <p class="team-tag">Innovation Hub</p>
+                    <p class="team-description">
+                        The Pakistani team brings cutting-edge AI solutions and innovation strategies. 
+                        Known for their competitive spirit and groundbreaking projects.
+                    </p>
+                    <div class="team-stats">
+                        <div class="stat">
+                            <strong>1000+</strong>
+                            <span>participants</span>
+                        </div>
+                        <div class="stat">
+                            <strong>5</strong>
+                            <span>Members</span>
+                        </div>
+                        <div class="stat">
+                            <strong>new</strong>
+                            <span>Awards</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team 2 -->
+            <div class="team-showcase-card">
+                <div class="team-image-large">
+                    <img src="./assets/team2.webp" alt="Team Karachi">
+                </div>
+                <div class="team-info">
+                    <h2>Team Pakistan</h2>
+                    <p class="team-tag">AI Leaders</p>
+                    <p class="team-description">
+                        Team Pakistan excels in machine learning and data science. 
+                        Their expertise spans industry applications and research.
+                    </p>
+                  <div class="team-stats">
+                        <div class="stat">
+                            <strong>1000+</strong>
+                            <span>participants</span>
+                        </div>
+                        <div class="stat">
+                            <strong>5</strong>
+                            <span>Members</span>
+                        </div>
+                        <div class="stat">
+                            <strong>new</strong>
+                            <span>Awards</span>
+                        </div>
+                    </div>  </div>
+            </div>
+
+            <!-- Team 3 -->
+            <div class="team-showcase-card">
+                <div class="team-image-large">
+                    <img src="./assets/team3.webp" alt="Team Islamabad">
+                </div>
+                <div class="team-info">
+                    <h2>Team Pakistan</h2>
+                    <p class="team-tag">Tech Pioneers</p>
+                    <p class="team-description">
+                        Team Pakistan focuses on government tech solutions and policy-driven AI. 
+                        Leaders in digital transformation initiatives.
+                    </p>
+                    <div class="team-stats">
+                        <div class="stat">
+                            <strong>1000+</strong>
+                            <span>participants</span>
+                        </div>
+                        <div class="stat">
+                            <strong>5</strong>
+                            <span>Members</span>
+                        </div>
+                        <div class="stat">
+                            <strong>new</strong>
+                            <span>Awards</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team 4 -->
+            <div class="team-showcase-card">
+                <div class="team-image-large">
+                    <img src="./assets/team4.webp" alt="Team Peshawar">
+                </div>
+                <div class="team-info">
+                    <h2>Team Pakistan</h2>
+                    <p class="team-tag">Rising Stars</p>
+                    <p class="team-description">
+                        Pakistan represents the emerging tech talent. 
+                        Fast-growing and full of energy and innovative ideas.
+                    </p>
+                    <div class="team-stats">
+                        <div class="stat">
+                            <strong>1000+</strong>
+                            <span>participants</span>
+                        </div>
+                        <div class="stat">
+                            <strong>5</strong>
+                            <span>Members</span>
+                        </div>
+                        <div class="stat">
+                            <strong>new</strong>
+                            <span>Awards</span>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <h2>Ready to Join a Team?</h2>
+        <p>Find your team and start making an impact today</p>
+        <a href="https://chat.whatsapp.com/J4epwsqiEIyK4cdwpAlTEo?s=cl&p=a&ilr=0" class="cta-btn-large" target="_blank">Join WhatsApp Community</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 NSTC Community of IOAI Pakistan. All rights reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

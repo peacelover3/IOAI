@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /assets/private/
+
+Sitemap: https://nstc-ioai.pk/sitemap.xml
+
+# Google Search Console
+User-agent: Googlebot
+Allow: /
+
+# Other crawlers
+User-agent: Bingbot
+Allow: /
