@@ -1,5 +1,5 @@
 // NSTC IOAI Pakistan - Main JavaScript File
-// Animations powered by GSAP and custom effects inspired by reactbits.dev
+// Modern 2026 Redesign - Enhanced Animations
 
 // ============================================
 // Initialize on Page Load
@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeScrollAnimations();
     initializeInteractiveElements();
     addSmoothScrolling();
+    animateCounterNumbers();
 });
 
 // ============================================
@@ -22,14 +23,12 @@ function initializeMobileMenu() {
 
     if (!mobileMenuBtn || !navLinks) return;
 
-    // Toggle menu on button click
     mobileMenuBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         navLinks.classList.toggle('active');
         mobileMenuBtn.classList.toggle('active');
     });
 
-    // Close menu when clicking a link
     navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');
@@ -37,7 +36,6 @@ function initializeMobileMenu() {
         });
     });
 
-    // Close menu when clicking outside
     document.addEventListener('click', (e) => {
         if (!navLinks.contains(e.target) && e.target !== mobileMenuBtn) {
             navLinks.classList.remove('active');
@@ -45,7 +43,6 @@ function initializeMobileMenu() {
         }
     });
 
-    // Close menu on scroll
     window.addEventListener('scroll', () => {
         navLinks.classList.remove('active');
         mobileMenuBtn.classList.remove('active');
@@ -69,10 +66,45 @@ function initializeScrollAnimations() {
         rootMargin: '0px 0px -100px 0px'
     });
 
-    // Observe all elements that should animate on scroll
-    document.querySelectorAll('.card, .team-card, .resource-card').forEach(el => {
+    document.querySelectorAll('.card, .team-card, .resource-card, .stat-item').forEach(el => {
         observer.observe(el);
     });
+}
+
+// ============================================
+// Counter Animation for Stats
+// ============================================
+
+function animateCounterNumbers() {
+    const counters = document.querySelectorAll('.stat-number[data-target]');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+
+                const updateCounter = () => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        counter.textContent = target + '+';
+                    } else {
+                        counter.textContent = Math.floor(current);
+                        requestAnimationFrame(updateCounter);
+                    }
+                };
+
+                updateCounter();
+                observer.unobserve(counter);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => observer.observe(counter));
 }
 
 // ============================================
@@ -80,8 +112,7 @@ function initializeScrollAnimations() {
 // ============================================
 
 function initializeInteractiveElements() {
-    // Add hover effects to buttons
-    const buttons = document.querySelectorAll('.cta-btn, .cta-btn-large, .download-btn, .view-btn, .join-btn');
+    const buttons = document.querySelectorAll('.cta-btn, .cta-btn-large, .download-btn, .view-btn, .join-btn, .secondary-btn');
     buttons.forEach(btn => {
         btn.addEventListener('mouseenter', function () {
             this.style.transform = 'scale(1.05)';
@@ -91,7 +122,6 @@ function initializeInteractiveElements() {
         });
     });
 
-    // Add click effect
     buttons.forEach(btn => {
         btn.addEventListener('click', function (e) {
             const ripple = document.createElement('span');
@@ -108,7 +138,6 @@ function initializeInteractiveElements() {
         });
     });
 
-    // Navbar active link on scroll
     updateActiveNavLink();
     window.addEventListener('scroll', updateActiveNavLink);
 }
@@ -127,7 +156,7 @@ function updateActiveNavLink() {
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 const href = link.getAttribute('href');
-                if (href.includes(section.id)) {
+                if (href && href.includes(section.id)) {
                     link.classList.add('active');
                 }
             });
@@ -155,7 +184,7 @@ function addSmoothScrolling() {
 }
 
 // ============================================
-// Parallax Effect (Optional, reactbits-inspired)
+// Parallax Effect
 // ============================================
 
 function parallaxEffect() {
@@ -171,18 +200,15 @@ function parallaxEffect() {
 parallaxEffect();
 
 // ============================================
-// Text Glitch Effect (Hero Section)
+// Text Glitch Effect
 // ============================================
 
 function addGlitchEffect() {
     const glitchElement = document.querySelector('.glitch');
     if (!glitchElement) return;
 
-    const text = glitchElement.textContent;
-
     glitchElement.addEventListener('mouseenter', function () {
         this.style.animation = 'glitch-animation 0.3s ease-in-out';
-        
         setTimeout(() => {
             this.style.animation = 'none';
         }, 300);
@@ -190,20 +216,6 @@ function addGlitchEffect() {
 }
 
 addGlitchEffect();
-
-// ============================================
-// Floating Animation for Cards
-// ============================================
-
-function addCardFloatingAnimation() {
-    const cards = document.querySelectorAll('.card, .team-card, .resource-card');
-    cards.forEach((card, index) => {
-        card.style.animation = `float ${3 + index * 0.5}s ease-in-out infinite`;
-    });
-}
-
-// Uncomment to enable floating animation
-// addCardFloatingAnimation();
 
 // ============================================
 // Dynamic Background Animation
@@ -219,68 +231,13 @@ function animateBackground() {
 animateBackground();
 
 // ============================================
-// Counter Animation (Optional, for stats)
-// ============================================
-
-function animateCounter(element, target, duration = 2000) {
-    let current = 0;
-    const increment = target / (duration / 16);
-
-    const interval = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            current = target;
-            clearInterval(interval);
-        }
-        element.textContent = Math.floor(current);
-    }, 16);
-}
-
-// ============================================
-// Fade In Animation on Load
-// ============================================
-
-document.addEventListener('DOMContentLoaded', () => {
-    const fadeElements = document.querySelectorAll('.fade-in-text');
-    fadeElements.forEach((el, index) => {
-        el.style.opacity = '0';
-        el.style.animation = `fade-in 0.8s ease-out ${index * 0.2}s forwards`;
-    });
-    // Note: .glitch element uses CSS animation and stays visible permanently
-});
-
-// ============================================
-// Page Transition Effects
-// ============================================
-
-function addPageTransitions() {
-    document.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', function (e) {
-            if (this.href && !this.href.includes('#') && !this.target) {
-                e.preventDefault();
-                document.body.style.opacity = '0.7';
-                setTimeout(() => {
-                    window.location.href = this.href;
-                }, 300);
-            }
-        });
-    });
-
-    window.addEventListener('pageshow', () => {
-        document.body.style.opacity = '1';
-    });
-}
-
-addPageTransitions();
-
-// ============================================
 // Console Easter Egg
 // ============================================
 
 console.log(
     "%c🚀 Welcome to NSTC Community of IOAI Pakistan! 🚀\n" +
     "%cJoin us on WhatsApp to be part of Pakistan's AI revolution!\n" +
-    "%cMade with ❤️ and cutting-edge animations",
+    "%cMade with ❤️ and cutting-edge animations | 2026 Edition",
     "color: #00d4ff; font-size: 16px; font-weight: bold;",
     "color: #7c3aed; font-size: 14px;",
     "color: #0099ff; font-size: 12px;"
@@ -290,7 +247,6 @@ console.log(
 // Performance Optimization
 // ============================================
 
-// Debounce function for scroll events
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -303,7 +259,6 @@ function debounce(func, wait) {
     };
 }
 
-// Lazy load images (if added in future)
 if ('IntersectionObserver' in window) {
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -324,39 +279,27 @@ if ('IntersectionObserver' in window) {
 }
 
 // ============================================
-// CSS Animation Keyframes (Runtime Addition)
+// CSS Animation Keyframes
 // ============================================
 
 const style = document.createElement('style');
 style.textContent = `
     @keyframes ripple {
-        to {
-            transform: scale(4);
-            opacity: 0;
-        }
+        to { transform: scale(4); opacity: 0; }
     }
-
     @keyframes glitch-animation {
         0%, 100% { text-shadow: 0 0 0px #00d4ff; }
         50% { text-shadow: 3px 3px 0px #7c3aed, -2px -2px 0px #0099ff; }
     }
-
-    @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(20px); }
+    @keyframes pulse-badge {
+        0%, 100% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.3); }
+        50% { box-shadow: 0 0 40px rgba(0, 212, 255, 0.6); }
     }
-
-    .animate-in {
-        animation: slide-up 0.6s ease-out !important;
-    }
+    .animate-in { animation: slide-up 0.6s ease-out !important; }
 `;
 
 document.head.appendChild(style);
 
-// ============================================
-// Initialize Everything
-// ============================================
-
 window.addEventListener('load', () => {
-    console.log('✅ NSTC IOAI Website fully loaded and animated!');
+    console.log('✅ NSTC IOAI Website fully loaded and animated! | 2026 Edition');
 });
