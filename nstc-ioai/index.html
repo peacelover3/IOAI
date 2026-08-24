@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="NSTC Community of IOAI Pakistan - Where AI learners, students, and innovators unite to build the future.">
+    <meta name="description" content="NSTC Community of IOAI Pakistan - Where AI learners, students, and innovators unite to build the future in 2026.">
     <meta name="theme-color" content="#0f1a3b">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nstc-ioai.pk/">
-    <meta property="og:title" content="NSTC Community of IOAI Pakistan">
+    <meta property="og:title" content="NSTC Community of IOAI Pakistan | 2026">
     <meta property="og:description" content="Where AI learners, students, and innovators unite to build the future.">
     <meta property="og:image" content="./assets/Brand kit/Logo square.png">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://nstc-ioai.pk/">
-    <meta property="twitter:title" content="NSTC Community of IOAI Pakistan">
+    <meta property="twitter:title" content="NSTC Community of IOAI Pakistan | 2026">
     <meta property="twitter:description" content="Where AI learners, students, and innovators unite to build the future.">
     <meta property="twitter:image" content="./assets/Brand kit/Logo square.png">
-    <title>NSTC Community of IOAI Pakistan</title>
+    <title>NSTC Community of IOAI Pakistan | 2026</title>
     <link rel="shortcut icon" href="./assets/Brand kit/Icon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
@@ -26,6 +29,7 @@
         <div class="nav-container">
             <div class="logo-section">
                 <img src="./assets/Brand kit/Logo square.png" alt="IOAI Logo" class="logo-img">
+                <span class="logo-text">IOAI Pakistan</span>
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html" class="active">Home</a></li>
@@ -34,21 +38,42 @@
                 <li><a href="details.html">Resources</a></li>
                 <li><a href="https://chat.whatsapp.com" class="join-btn" target="_blank">Join Community</a></li>
             </ul>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span class="hamburger"></span>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
+            <div class="hero-badge">🚀 Welcome to 2026</div>
             <h1 class="glitch" data-text="NSTC Community of IOAI Pakistan">NSTC Community of IOAI Pakistan</h1>
             <p class="fade-in-text">Where AI learners, students, and innovators unite to build the future</p>
-            <a href="https://chat.whatsapp.com" class="cta-btn" target="_blank">Join Our WhatsApp Channel</a>
+            <div class="hero-buttons">
+                <a href="https://chat.whatsapp.com" class="cta-btn" target="_blank">Join Our WhatsApp Channel</a>
+                <a href="mission.html" class="secondary-btn">Learn More</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="1000">0</span>
+                    <span class="stat-label">Active Members</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="50">0</span>
+                    <span class="stat-label">Contests Held</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="100">0</span>
+                    <span class="stat-label">%">Success Rate</span>
+                </div>
+            </div>
         </div>
         <div class="animated-background">
             <div class="blob blob-1"></div>
             <div class="blob blob-2"></div>
             <div class="blob blob-3"></div>
+            <div class="grid-overlay"></div>
         </div>
     </section>
 
@@ -56,6 +81,7 @@
     <section id="mission" class="mission">
         <div class="mission-container">
             <h2 class="section-title">Our Mission</h2>
+            <p class="section-subtitle">Empowering Pakistan's next generation of AI innovators</p>
             <div class="mission-cards">
                 <div class="card slide-up">
                     <div class="card-icon">🎓</div>
@@ -65,7 +91,7 @@
                 <div class="card slide-up" style="animation-delay: 0.2s;">
                     <div class="card-icon">🏆</div>
                     <h3>Compete</h3>
-                    <p>Challenge yourself in rigorous NSTC contests and showcase your skills.</p>
+                    <p>Challenge yourself in rigorous NSTC contests and showcase your skills on a national platform.</p>
                 </div>
                 <div class="card slide-up" style="animation-delay: 0.4s;">
                     <div class="card-icon">🤝</div>
@@ -80,6 +106,7 @@
     <!-- Team Section -->
     <section id="team" class="team">
         <h2 class="section-title">Pakistan's Elite Squad</h2>
+        <p class="section-subtitle">Meet the innovators driving AI excellence</p>
         <div class="team-gallery">
             <div class="team-card">
                 <img src="./assets/team1.webp" alt="Pakistan Squad" class="team-card-image">
@@ -102,21 +129,44 @@
                 <p>Future Leader</p>
             </div>
         </div>
-        <a href="team.html" class="learn-more-btn">View All →</a/div>
-        </div>
+        <a href="team.html" class="learn-more-btn">View All Teams →</a>
     </section>
 
     <!-- Call to Action -->
     <section class="cta-section">
         <h2>Ready to Join the Revolution?</h2>
-        <p>Be part of Pakistan's growing AI community</p>
+        <p>Be part of Pakistan's growing AI community in 2026</p>
         <a href="https://chat.whatsapp.com/J4epwsqiEIyK4cdwpAlTEo?s=cl&p=a&ilr=0" class="cta-btn-large" target="_blank">Join WhatsApp Channel Now</a>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2026 NSTC Community of IOAI Pakistan. All rights reserved.</p>
-        <p><a href="details.html">View Contest Rules & Syllabus</a></p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>NSTC IOAI Pakistan</h4>
+                <p>Building the future of AI in Pakistan</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="mission.html">Mission</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="details.html">Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="https://chat.whatsapp.com" target="_blank">WhatsApp Community</a></li>
+                    <li><a href="mailto:info@nstc-ioai.pk">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 NSTC Community of IOAI Pakistan. All rights reserved.</p>
+            <p><a href="details.html">View Contest Rules & Syllabus</a></p>
+        </div>
     </footer>
 
     <script src="js/main.js"></script>
